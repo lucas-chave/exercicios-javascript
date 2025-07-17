@@ -7,7 +7,7 @@ function isOdd(num) {
 }
 
 const nums = [];
-for (var i = 0; i < 20; ++i) {
+for (let i = 0; i < 20; ++i) {
    nums[i] = i + 1;
 }
 const evens = nums.filter(isEven);

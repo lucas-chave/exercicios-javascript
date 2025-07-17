@@ -3,7 +3,7 @@ function passing(num) {
 }
 
 const grades = [];
-for (var i = 0; i < 20; ++i) {
+for (let i = 0; i < 20; ++i) {
    grades[i] = Math.floor(Math.random() * 101);
 }
 const passGrades = grades.filter(passing);

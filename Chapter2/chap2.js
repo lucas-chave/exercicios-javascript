@@ -12,10 +12,10 @@ function calcNotes() {
 
    // addNote(notes, 1, 6)
 
-   var total = 0;
-   var average = 0.0;
-   for (var row = 0; row < notes.length; ++row) {
-      for (var col = 0; col < notes[row].length; ++col) {
+   let total = 0;
+   let average = 0.0;
+   for (let row = 0; row < notes.length; ++row) {
+      for (let col = 0; col < notes[row].length; ++col) {
          total += notes[row][col];
       }
       average = calcAverage(total, notes[row].length)
@@ -86,8 +86,8 @@ function allWeeksAverages() {
 }
 
 function average() {
-   var total = 0;
-   for (var i = 0; i < this.dataStore.length; ++i) {
+   let total = 0;
+   for (let i = 0; i < this.dataStore.length; ++i) {
       total += this.dataStore[i];
    }
    return total / this.dataStore.length;

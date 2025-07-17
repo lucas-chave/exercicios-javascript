@@ -47,8 +47,8 @@ function inverseArray() {
    function concat(accumulatedString, item) {
       return accumulatedString + item;
    }
-   var words = ["the ", "quick ", "brown ", "fox "];
-   var sentence = words.reduceRight(concat);
+   const words = ["the ", "quick ", "brown ", "fox "];
+   const sentence = words.reduceRight(concat);
    console.log(sentence);
 }
 // inverseArray()
@@ -58,8 +58,8 @@ function transformArrayWithMap() {
    function curve(grade) {
       return grade += 5;
    }
-   var grades = [77, 65, 81, 92, 83];
-   var newgrades = grades.map(curve);
+   const grades = [77, 65, 81, 92, 83];
+   const newgrades = grades.map(curve);
    console.log(newgrades);
 }
 

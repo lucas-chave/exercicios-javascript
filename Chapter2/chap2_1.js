@@ -2,7 +2,7 @@
 function creatingArraysFromStrings() {
    const sentence = "the quick brown fox jumped over the lazy dog";
    const words = sentence.split(" ");
-   for (var i = 0; i < words.length; ++i) {
+   for (let i = 0; i < words.length; ++i) {
       console.log("word " + i + ": " + words[i]);
    }
 }
@@ -12,7 +12,7 @@ function creatingArraysFromStrings() {
 function sumNumbers() {
    const numbers = [1, 2, 3, 5, 8, 13, 21];
    const sum = 0;
-   for (var i = 0; i < numbers.length; ++i) {
+   for (let i = 0; i < numbers.length; ++i) {
       sum += numbers[i];
    }
    console.log(sum);
@@ -22,7 +22,7 @@ function sumNumbers() {
 // Agregando arrays
 function aggregateArrays() {
    const nums = [];
-   for (var i = 0; i < 10; ++i) {
+   for (let i = 0; i < 10; ++i) {
       nums[i] = i + 1;
    }
    const samenums = nums;
@@ -33,14 +33,14 @@ function aggregateArrays() {
 // aggregateArrays()
 
 function copy(arr1, arr2) {
-   for (var i = 0; i < arr1.length; ++i) {
+   for (let i = 0; i < arr1.length; ++i) {
       arr2[i] = arr1[i]
    }
 }
 
 const nums = [];
 
-for (var i = 0; i < 100; ++i) {
+for (let i = 0; i < 100; ++i) {
    nums[i] = i + 1;
 }
 

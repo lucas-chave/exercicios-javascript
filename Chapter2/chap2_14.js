@@ -9,14 +9,14 @@ function add(temp) {
 }
 
 function average() {
-   var total = 0;
-   for (var i = 0; i < this.dataStore.length; ++i) {
+   const total = 0;
+   for (let i = 0; i < this.dataStore.length; ++i) {
       total += this.dataStore[i];
    }
    return total / this.dataStore.length;
 }
 
-var thisWeek = new weekTemps();
+const thisWeek = new weekTemps();
 thisWeek.add(52);
 thisWeek.add(55);
 thisWeek.add(61);
