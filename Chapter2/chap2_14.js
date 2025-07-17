@@ -25,4 +25,4 @@ thisWeek.add(55);
 thisWeek.add(50);
 thisWeek.add(52);
 thisWeek.add(49);
-print(thisWeek.average()); // displays 54.875
+console.log(thisWeek.average());

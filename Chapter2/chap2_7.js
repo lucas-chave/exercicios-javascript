@@ -63,12 +63,18 @@ function transformArrayWithMap() {
    console.log(newgrades);
 }
 
+// transformArrayWithMap()
+
 function transformStrings() {
    function first(word) {
       return word[0];
    }
    const words = ["for", "your", "information"];
+   // console.log(words);
+
    const acronym = words.map(first);
+   console.log(acronym);
+
    console.log(acronym.join(""));
 }
 transformStrings()
