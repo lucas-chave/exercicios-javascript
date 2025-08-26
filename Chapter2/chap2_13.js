@@ -9,17 +9,25 @@ function displayPts(arr) {
    }
 }
 
-let p1 = new Point(1, 2);
-let p2 = new Point(3, 5);
-let p3 = new Point(2, 8);
-let p4 = new Point(4, 4);
-let points = [p1, p2, p3, p4];
-for (var i = 0; i < points.length; ++i) {
-   console.log("Point " + parseInt(i + 1) + ": " + points[i].x + ", " +
-      points[i].y);
+function runPoints() {
+   const p1 = new Point(1, 2);
+   const p2 = new Point(3, 5);
+   const p3 = new Point(2, 8);
+   const p4 = new Point(4, 4);
+   const points = [p1, p2, p3, p4];
+
+   for (let i = 0; i < points.length; ++i) {
+      console.log(
+         "Point " + parseInt(i + 1) + ": " + points[i].x + ", " + points[i].y
+      );
+   }
+
+   const p5 = new Point(12, -3);
+   points.push(p5);
+
+   displayPts(points);
+   points.shift();
+   displayPts(points);
 }
-var p5 = new Point(12, -3);
-points.push(p5);
-displayPts(points);
-points.shift();
-displayPts(points);
+
+module.exports = { Point, displayPts, runPoints };

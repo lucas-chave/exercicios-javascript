@@ -2,8 +2,17 @@ function square(num) {
   console.log(num, num * num);
 }
 
-const nums = [];
-for (let i = 0; i < 10; ++i) {
-  nums[i] = i + 1;
+function createArray() {
+  const nums = [];
+  for (let i = 0; i < 10; ++i) {
+    nums[i] = i + 1;
+  }
+  return nums;
 }
-nums.forEach(square);
+
+function runSquares() {
+  const nums = createArray();
+  nums.forEach(square);
+}
+
+module.exports = { square, createArray, runSquares };

@@ -1,7 +1,6 @@
 function searchNameInArray() {
    const names = ["David", "Cynthia", "Raymond", "Clayton", "Jennifer"];
    const name = 'Cynthia';
-   // var name = 'Cynthiaa';
 
    const position = names.indexOf(name);
    if (position >= 0) {
@@ -12,3 +11,5 @@ function searchNameInArray() {
    }
 }
 searchNameInArray()
+
+module.exports = { searchNameInArray };

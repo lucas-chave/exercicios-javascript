@@ -14,3 +14,5 @@ function gradeForLine() {
    }
 }
 gradeForLine()
+
+module.exports = { gradeForLine };

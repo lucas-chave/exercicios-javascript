@@ -1,4 +1,3 @@
-// #1
 function calcNotes() {
    const notes = [[9, 4, 3], [2, 4, 10], [1, 9, 2], [7, 8]]
 
@@ -10,7 +9,7 @@ function calcNotes() {
       arr[student].push(note)
    }
 
-   // addNote(notes, 1, 6)
+   addNote(notes, 1, 6)
 
    let total = 0;
    let average = 0.0;
@@ -32,7 +31,7 @@ function reverseWords() {
    const words = ['developer', 'javascript', 'arrays', 'reverse'];
    words.reverse();
    console.log(words);
-
+   return words
 }
 // reverseWords()
 
@@ -95,42 +94,54 @@ function average() {
 
 const month = new weekTemps();
 
-month.add(0, 52);
-month.add(0, 55);
-month.add(0, 61);
-month.add(0, 65);
-month.add(0, 55);
-month.add(0, 50);
-month.add(0, 52);
+const monthArr = [
+   [52, 55, 61, 65, 55, 50, 52],
+   [48, 50, 52, 49, 51, 53, 54],
+   [60, 62, 58, 64, 61, 59, 63],
+   [45, 47, 44, 46, 48, 50, 49]
+];
 
-month.add(1, 48);
-month.add(1, 50);
-month.add(1, 52);
-month.add(1, 49);
-month.add(1, 51);
-month.add(1, 53);
-month.add(1, 54);
+monthArr.forEach((week, index) => {
+   week.forEach((temp) => {
+      month.add(index, temp);
+   });
+});
 
-month.add(2, 60);
-month.add(2, 62);
-month.add(2, 58);
-month.add(2, 64);
-month.add(2, 61);
-month.add(2, 59);
-month.add(2, 63);
+// month.add(0, 52);
+// month.add(0, 55);
+// month.add(0, 61);
+// month.add(0, 65);
+// month.add(0, 55);
+// month.add(0, 50);
+// month.add(0, 52)
 
-month.add(3, 45);
-month.add(3, 47);
-month.add(3, 44);
-month.add(3, 46);
-month.add(3, 48);
-month.add(3, 50);
-month.add(3, 49);
+// month.add(1, 48);
+// month.add(1, 50);
+// month.add(1, 52);
+// month.add(1, 49);
+// month.add(1, 51);
+// month.add(1, 53);
+// month.add(1, 54);
 
-console.log(month.monthAverage().toFixed(2));
-console.log(month.weekAverage(1).toFixed(2));
+// month.add(2, 60);
+// month.add(2, 62);
+// month.add(2, 58);
+// month.add(2, 64);
+// month.add(2, 61);
+// month.add(2, 59);
+// month.add(2, 63);
+
+// month.add(3, 45);
+// month.add(3, 47);
+// month.add(3, 44);
+// month.add(3, 46);
+// month.add(3, 48);
+// month.add(3, 50);
+// month.add(3, 49);
+
+// console.log(month.monthAverage().toFixed(2));
+// console.log(month.weekAverage(1).toFixed(2));
 month.allWeeksAverages();
-console.log(thisWeek.average());
 
 // #4
 function lettersInWords() {
@@ -138,9 +149,12 @@ function lettersInWords() {
    function joinLetters() {
       const word = letters.map((l) => l[0]).join("")
       console.log(word);
-
+      return word;
    }
-   joinLetters()
+
+   return joinLetters()
 
 }
 // lettersInWords()
+
+module.exports = { calcNotes, reverseWords, weekTemps, lettersInWords };

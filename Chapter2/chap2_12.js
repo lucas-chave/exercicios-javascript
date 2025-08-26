@@ -14,3 +14,5 @@ function jaggedArrays() {
    }
 }
 jaggedArrays()
+
+module.exports = { jaggedArrays };

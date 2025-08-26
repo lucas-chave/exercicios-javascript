@@ -18,3 +18,5 @@ function stringsOfArrays() {
     console.log(namestr);
 }
 stringsOfArrays()
+
+module.exports = { searchNameInArrayWithPosition, stringsOfArrays };

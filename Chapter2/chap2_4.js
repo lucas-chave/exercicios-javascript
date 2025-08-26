@@ -132,3 +132,21 @@ function sortElementsNumbers() {
     console.log(nums);
 }
 // sortElementsNumbers()
+
+
+module.exports = {
+    creatingArraysFromExistingArraysWithIndexOf,
+    createArraysFromExistingArraysWithSplice,
+    modifyArrays,
+    modifyArrayWithLength,
+    addElementInBeginArray,
+    addElementInBeginArrayWithUnshift,
+    removingElement,
+    removingElementInBeginArray,
+    removingElementInBeginArrayWithShift,
+    addElementsInArray,
+    removingElementsWithSplice,
+    reverseArrays,
+    sortElements,
+    sortElementsNumbers
+};

@@ -9,7 +9,7 @@ function add(temp) {
 }
 
 function average() {
-   const total = 0;
+   let total = 0;
    for (let i = 0; i < this.dataStore.length; ++i) {
       total += this.dataStore[i];
    }
@@ -26,3 +26,5 @@ thisWeek.add(50);
 thisWeek.add(52);
 thisWeek.add(49);
 console.log(thisWeek.average());
+
+module.exports = { weekTemps };

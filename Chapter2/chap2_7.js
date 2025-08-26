@@ -78,3 +78,13 @@ function transformStrings() {
    console.log(acronym.join(""));
 }
 transformStrings()
+
+
+module.exports = {
+   verifySomeElements,
+   sumNumberInArray,
+   concatStrings,
+   inverseArray,
+   transformArrayWithMap,
+   transformStrings
+};

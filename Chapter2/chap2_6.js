@@ -12,3 +12,5 @@ function verifyEveryNumbers() {
       console.log("some numbers are odd");
    }
 }
+
+module.exports = { isEven, verifyEveryNumbers };

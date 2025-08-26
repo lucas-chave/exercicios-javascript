@@ -35,3 +35,4 @@ function matrixNames() {
    console.log(names[1][2]);
 }
 // matrixNames()
+module.exports = { gradesArray, matrix, matrixNames };
