@@ -1,4 +1,4 @@
-const { calcNotes, reverseWords, weekTemps, lettersInWords } = require('./chap2');
+const { calcNotes, reverseWords, setupWeekTemps, lettersInWords } = require('./chap2');
 
 describe("arraysExercises - CalcNotes", () => {
   let consoleSpy;
@@ -55,23 +55,30 @@ describe("arraysExercises - weekTemps", () => {
 
   // #3
   test("weekTemps deve adicionar e calcular médias corretamente", () => {
-    const month = new weekTemps();
-    month.add(0, 52);
-    month.add(0, 55);
-    month.add(1, 60);
-    month.add(1, 70);
+    let week = {
+      dataStore: [[], [], [], []]
+    };
+    setupWeekTemps(week);
 
-    expect(month.dataStore[0]).toEqual([52, 55]);
-    expect(month.dataStore[1]).toEqual([60, 70]);
+    week.add(0, 52);
+    week.add(0, 55);
+    week.add(1, 60);
+    week.add(1, 70);
 
-    expect(month.weekAverage(0)).toBeCloseTo((52 + 55) / 2);
-    expect(month.weekAverage(1)).toBeCloseTo((60 + 70) / 2);
-    expect(month.monthAverage()).toBeCloseTo((52 + 55 + 60 + 70) / 4);
+    expect(week.dataStore[0]).toEqual([52, 55]);
+    expect(week.dataStore[1]).toEqual([60, 70]);
+
+    expect(week.weekAverage(0)).toBeCloseTo((52 + 55) / 2);
+    expect(week.weekAverage(1)).toBeCloseTo((60 + 70) / 2);
+    expect(week.monthAverage()).toBeCloseTo((52 + 55 + 60 + 70) / 4);
   });
 
   test("weekTemps semana inválida retorna mensagem correta", () => {
-    const month = new weekTemps();
-    month.add(10, 50);
+    let week = {
+      dataStore: [[], [], [], []]
+    };
+    setupWeekTemps(week);
+    week.add(10, 50);
     expect(consoleSpy).toHaveBeenCalledWith("Semana inválida.");
   });
 

@@ -39,20 +39,20 @@ function reverseWords(wordsArr) {
 // #3
 
 
-function weekTemps() {
-   this.dataStore = [[], [], [], []];
-   this.add = add;
-   this.average = average;
-   this.monthAverage = monthAverage;
-   this.weekAverage = weekAverage;
-   this.allWeeksAverages = allWeeksAverages;
-}
+// function weekTemps() {
+//    this.dataStore = [[], [], [], []];
+//    this.add = add;
+//    this.average = average;
+//    this.monthAverage = monthAverage;
+//    this.weekAverage = weekAverage;
+//    this.allWeeksAverages = allWeeksAverages;
+// }
 
 let week = {
    dataStore: [[], [], [], []]
 };
 
-function setupWeekTemps() {
+function setupWeekTemps(week) {
    week.add = add;
    week.average = average;
    week.monthAverage = monthAverage;
@@ -107,7 +107,7 @@ function average() {
 }
 
 // const month = new weekTemps();
-setupWeekTemps()
+setupWeekTemps(week)
 const monthArr = [
    [52, 55, 61, 65, 55, 50, 52],
    [48, 50, 52, 49, 51, 53, 54],
@@ -137,4 +137,4 @@ function lettersInWords() {
 }
 // lettersInWords()
 
-module.exports = { calcNotes, reverseWords, weekTemps, lettersInWords };
+module.exports = { calcNotes, reverseWords, setupWeekTemps, lettersInWords };
