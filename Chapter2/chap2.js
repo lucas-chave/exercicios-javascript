@@ -1,41 +1,43 @@
-function calcNotes() {
-   const notes = [[9, 4, 3], [2, 4, 10], [1, 9, 2], [7, 8]]
+const notes = [[9, 4, 3], [2, 4, 10], [1, 9, 2], [7, 8]]
 
-   function calcAverage(total, qtdNotes) {
-      return total / qtdNotes
-   }
+function calcAverage(total, qtdNotes) {
+   return total / qtdNotes
+}
 
-   function addNote(arr, student, note) {
-      arr[student].push(note)
-   }
+function addNote(arr, student, note) {
+   arr[student].push(note)
+}
 
-   addNote(notes, 1, 6)
+function calcNotes(matrixNotes) {
+   addNote(matrixNotes, 1, 6)
 
    let total = 0;
    let average = 0.0;
-   for (let row = 0; row < notes.length; ++row) {
-      for (let col = 0; col < notes[row].length; ++col) {
-         total += notes[row][col];
+   for (let row = 0; row < matrixNotes.length; ++row) {
+      for (let col = 0; col < matrixNotes[row].length; ++col) {
+         total += matrixNotes[row][col];
       }
-      average = calcAverage(total, notes[row].length)
+      average = calcAverage(total, matrixNotes[row].length)
       console.log("Student " + parseInt(row + 1) + " average: " +
          average.toFixed(2));
       total = 0;
       average = 0.0;
    }
 }
-// calcNotes()
+// calcNotes(notes)
 
 // #2
-function reverseWords() {
-   const words = ['developer', 'javascript', 'arrays', 'reverse'];
-   words.reverse();
-   console.log(words);
-   return words
+const words = ['developer', 'javascript', 'arrays', 'reverse'];
+
+function reverseWords(wordsArr) {
+   wordsArr.reverse();
+   console.log(wordsArr);
+   return wordsArr;
 }
-// reverseWords()
+// reverseWords(words);
 
 // #3
+
 
 function weekTemps() {
    this.dataStore = [[], [], [], []];
@@ -44,6 +46,18 @@ function weekTemps() {
    this.monthAverage = monthAverage;
    this.weekAverage = weekAverage;
    this.allWeeksAverages = allWeeksAverages;
+}
+
+let week = {
+   dataStore: [[], [], [], []]
+};
+
+function setupWeekTemps() {
+   week.add = add;
+   week.average = average;
+   week.monthAverage = monthAverage;
+   week.weekAverage = weekAverage;
+   week.allWeeksAverages = allWeeksAverages;
 }
 
 function add(week, temp) {
@@ -92,8 +106,8 @@ function average() {
    return total / this.dataStore.length;
 }
 
-const month = new weekTemps();
-
+// const month = new weekTemps();
+setupWeekTemps()
 const monthArr = [
    [52, 55, 61, 65, 55, 50, 52],
    [48, 50, 52, 49, 51, 53, 54],
@@ -101,47 +115,13 @@ const monthArr = [
    [45, 47, 44, 46, 48, 50, 49]
 ];
 
-monthArr.forEach((week, index) => {
-   week.forEach((temp) => {
-      month.add(index, temp);
+monthArr.forEach((weekDays, index) => {
+   weekDays.forEach((temp) => {
+      week.add(index, temp);
    });
 });
 
-// month.add(0, 52);
-// month.add(0, 55);
-// month.add(0, 61);
-// month.add(0, 65);
-// month.add(0, 55);
-// month.add(0, 50);
-// month.add(0, 52)
-
-// month.add(1, 48);
-// month.add(1, 50);
-// month.add(1, 52);
-// month.add(1, 49);
-// month.add(1, 51);
-// month.add(1, 53);
-// month.add(1, 54);
-
-// month.add(2, 60);
-// month.add(2, 62);
-// month.add(2, 58);
-// month.add(2, 64);
-// month.add(2, 61);
-// month.add(2, 59);
-// month.add(2, 63);
-
-// month.add(3, 45);
-// month.add(3, 47);
-// month.add(3, 44);
-// month.add(3, 46);
-// month.add(3, 48);
-// month.add(3, 50);
-// month.add(3, 49);
-
-// console.log(month.monthAverage().toFixed(2));
-// console.log(month.weekAverage(1).toFixed(2));
-month.allWeeksAverages();
+week.allWeeksAverages();
 
 // #4
 function lettersInWords() {

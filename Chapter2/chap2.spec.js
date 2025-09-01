@@ -1,6 +1,6 @@
 const { calcNotes, reverseWords, weekTemps, lettersInWords } = require('./chap2');
 
-describe("arraysExercises", () => {
+describe("arraysExercises - CalcNotes", () => {
   let consoleSpy;
 
   beforeEach(() => {
@@ -13,18 +13,44 @@ describe("arraysExercises", () => {
 
   // #1
   test("deve calcular médias corretamente com nota adicionada", () => {
-    calcNotes();
+    const notes = [[9, 4, 3], [2, 4, 10], [1, 9, 2], [7, 8]]
+
+    calcNotes(notes);
 
     expect(consoleSpy).toHaveBeenNthCalledWith(1, "Student 1 average: 5.33");
     expect(consoleSpy).toHaveBeenNthCalledWith(2, "Student 2 average: 5.50");
     expect(consoleSpy).toHaveBeenNthCalledWith(3, "Student 3 average: 4.00");
     expect(consoleSpy).toHaveBeenNthCalledWith(4, "Student 4 average: 7.50");
   });
+});
+
+describe("arraysExercises - reverseWords", () => {
+  beforeEach(() => {
+    consoleSpy = jest.spyOn(console, "log").mockImplementation(() => { });
+  });
+
+  afterEach(() => {
+    consoleSpy.mockRestore();
+  });
 
   // #2
   test("reverseWords deve inverter array de palavras", () => {
-    const reversed = reverseWords();
+    const words = ['developer', 'javascript', 'arrays', 'reverse'];
+
+    const reversed = reverseWords(words);
     expect(reversed).toEqual(['reverse', 'arrays', 'javascript', 'developer']);
+  });
+
+})
+
+describe("arraysExercises - weekTemps", () => {
+  let consoleSpy;
+  beforeEach(() => {
+    consoleSpy = jest.spyOn(console, "log").mockImplementation(() => { });
+  });
+
+  afterEach(() => {
+    consoleSpy.mockRestore();
   });
 
   // #3
@@ -47,6 +73,20 @@ describe("arraysExercises", () => {
     const month = new weekTemps();
     month.add(10, 50);
     expect(consoleSpy).toHaveBeenCalledWith("Semana inválida.");
+  });
+
+});
+
+describe("arraysExercises - lettersInWords", () => {
+
+  let consoleSpy;
+
+  beforeEach(() => {
+    consoleSpy = jest.spyOn(console, "log").mockImplementation(() => { });
+  });
+
+  afterEach(() => {
+    consoleSpy.mockRestore();
   });
 
   // #4
