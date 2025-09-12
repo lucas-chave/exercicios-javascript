@@ -12,7 +12,8 @@ describe("gradeForLine.js", () => {
   });
 
   test("gradeForLine deve calcular médias corretas por teste (colunas)", () => {
-    gradeForLine();
+    const grades = [[89, 77, 78], [76, 82, 81], [91, 94, 89]];
+    gradeForLine(grades);
 
     expect(consoleSpy).toHaveBeenNthCalledWith(1, "Test 1 average: 85.33");
     expect(consoleSpy).toHaveBeenNthCalledWith(2, "Test 2 average: 84.33");

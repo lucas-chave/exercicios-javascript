@@ -20,7 +20,7 @@ describe("grades.js", () => {
 
   test("generateGrades deve gerar 20 notas e filtrar aprovados", () => {
     jest.spyOn(Math, "random").mockReturnValue(0.75);
-    const { grades, passGrades } = generateGrades();
+    const { grades, passGrades } = generateGrades(20);
 
     expect(grades.length).toBe(20);
     expect(grades.every(g => g === 75)).toBe(true);

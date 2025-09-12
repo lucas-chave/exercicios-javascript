@@ -2,9 +2,9 @@ function passing(num) {
    return num >= 60;
 }
 
-function generateGrades() {
+function generateGrades(sizeGrade) {
    const grades = [];
-   for (let i = 0; i < 20; ++i) {
+   for (let i = 0; i < sizeGrade; ++i) {
       grades[i] = Math.floor(Math.random() * 101);
    }
    const passGrades = grades.filter(passing);
@@ -14,5 +14,7 @@ function generateGrades() {
 
    return { grades, passGrades };
 }
+
+generateGrades(20);
 
 module.exports = { passing, generateGrades };

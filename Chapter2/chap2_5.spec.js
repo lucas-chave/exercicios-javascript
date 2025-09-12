@@ -12,7 +12,8 @@ describe("squareArray.js", () => {
   });
 
   test("createArray deve retornar array de 1 a 10", () => {
-    const nums = createArray();
+    const num = 10
+    const nums = createArray(num);
     expect(nums).toEqual([1, 2, 3, 4, 5, 6, 7, 8, 9, 10]);
   });
 

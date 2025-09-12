@@ -6,9 +6,9 @@ function isOdd(num) {
    return num % 2 != 0;
 }
 
-function runFilter() {
+function runFilter(sizeArr) {
    const nums = [];
-   for (let i = 0; i < 20; ++i) {
+   for (let i = 0; i < sizeArr; ++i) {
       nums[i] = i + 1;
    }
 
@@ -19,6 +19,7 @@ function runFilter() {
    const odds = nums.filter(isOdd);
    console.log("Odd numbers: ");
    console.log(odds);
+   return { odds, evens };
 }
 
 module.exports = { isEven, isOdd, runFilter };

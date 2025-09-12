@@ -3,18 +3,22 @@ const { creatingArraysFromStrings, sumNumbers, aggregateArrays, copy } = require
 describe("Testes simples das funções", () => {
 
     test("creatingArraysFromStrings deve retornar todas as palavras da frase", () => {
-        const words = creatingArraysFromStrings();
+        const sentence = "the quick brown fox jumped over the lazy dog";
+
+        const words = creatingArraysFromStrings(sentence);
         expect(words.length).toBe(9);
         expect(words[0]).toBe("the");
         expect(words[8]).toBe("dog");
     });
 
     test("sumNumbers deve retornar a soma correta do array", () => {
-        expect(sumNumbers()).toBe(53);
+        const numbers = [1, 2, 3, 5, 8, 13, 21];
+
+        expect(sumNumbers(numbers)).toBe(53);
     });
 
     test("aggregateArrays deve manter a referência entre arrays", () => {
-        const { nums, samenums } = aggregateArrays();
+        const { nums, samenums } = aggregateArrays(10);
         expect(nums).toBe(samenums)
         expect(nums[0]).toBe(400);
         expect(samenums[0]).toBe(400);

@@ -1,18 +1,21 @@
 function square(num) {
-  console.log(num, num * num);
+  console.log(num, num * num)
 }
 
-function createArray() {
+function createArray(sizeArray) {
   const nums = [];
-  for (let i = 0; i < 10; ++i) {
+  for (let i = 0; i < sizeArray; ++i) {
     nums[i] = i + 1;
   }
   return nums;
 }
 
 function runSquares() {
-  const nums = createArray();
+  const sizeArray = 10
+  const nums = createArray(sizeArray);
   nums.forEach(square);
 }
+
+runSquares()
 
 module.exports = { square, createArray, runSquares };

@@ -1,43 +1,117 @@
 const funcs = require('./chap2_7');
 
-let consoleSpy;
+describe("verifySomeElements", () => {
+  let consoleSpy;
 
-beforeEach(() => {
-  consoleSpy = jest.spyOn(console, "log").mockImplementation(() => { });
+  beforeEach(() => {
+    consoleSpy = jest.spyOn(console, "log").mockImplementation(() => { });
+  });
+
+  afterEach(() => {
+    consoleSpy.mockRestore();
+  });
+
+  test("deve detectar arrays com e sem pares", () => {
+    const nums = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+    const result = funcs.verifySomeElements(nums);
+    expect(consoleSpy).toHaveBeenNthCalledWith(1, "some numbers are even");
+    expect(result).toBe("some numbers are even")
+  });
 });
 
-afterEach(() => {
-  consoleSpy.mockRestore();
+describe("sumNumberInArray", () => {
+  let consoleSpy;
+
+  beforeEach(() => {
+    consoleSpy = jest.spyOn(console, "log").mockImplementation(() => { });
+  });
+
+  afterEach(() => {
+    consoleSpy.mockRestore();
+  });
+
+  test("deve somar os números de 1 a 10", () => {
+    const nums = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+    const result = funcs.sumNumberInArray(nums);
+    expect(consoleSpy).toHaveBeenCalledWith(55);
+    expect(result).toBe(55)
+  });
 });
 
-test("verifySomeElements deve detectar arrays com e sem pares", () => {
-  funcs.verifySomeElements();
-  expect(consoleSpy).toHaveBeenNthCalledWith(1, "some numbers are even");
-  expect(consoleSpy).toHaveBeenNthCalledWith(2, "no numbers are even");
+describe("concatStrings", () => {
+  let consoleSpy;
+
+  beforeEach(() => {
+    consoleSpy = jest.spyOn(console, "log").mockImplementation(() => { });
+  });
+
+  afterEach(() => {
+    consoleSpy.mockRestore();
+  });
+
+  test("deve concatenar palavras na ordem", () => {
+    const words = ["the ", "quick ", "brown ", "fox "];
+    const result = funcs.concatStrings(words);
+    expect(consoleSpy).toHaveBeenCalledWith("the quick brown fox ");
+    expect(result).toBe("the quick brown fox ")
+  });
 });
 
-test("sumNumberInArray deve somar os números de 1 a 10", () => {
-  funcs.sumNumberInArray();
-  expect(consoleSpy).toHaveBeenCalledWith(55);
+describe("inverseArray", () => {
+  let consoleSpy;
+
+  beforeEach(() => {
+    consoleSpy = jest.spyOn(console, "log").mockImplementation(() => { });
+  });
+
+  afterEach(() => {
+    consoleSpy.mockRestore();
+  });
+
+  test("deve concatenar palavras na ordem inversa", () => {
+    const words = ["the ", "quick ", "brown ", "fox "];
+    const result = funcs.inverseArray(words);
+    expect(consoleSpy).toHaveBeenCalledWith("fox brown quick the ");
+    expect(result).toBe("fox brown quick the ");
+  });
 });
 
-test("concatStrings deve concatenar palavras na ordem", () => {
-  funcs.concatStrings();
-  expect(consoleSpy).toHaveBeenCalledWith("the quick brown fox ");
+describe("transformArrayWithMap", () => {
+  let consoleSpy;
+
+  beforeEach(() => {
+    consoleSpy = jest.spyOn(console, "log").mockImplementation(() => { });
+  });
+
+  afterEach(() => {
+    consoleSpy.mockRestore();
+  });
+
+  test("deve adicionar 5 a cada nota", () => {
+    const grades = [77, 65, 81, 92, 83];
+
+    const result = funcs.transformArrayWithMap(grades);
+    expect(consoleSpy).toHaveBeenCalledWith([82, 70, 86, 97, 88]);
+    expect(result).toStrictEqual([82, 70, 86, 97, 88]);
+  });
 });
 
-test("inverseArray deve concatenar palavras na ordem inversa", () => {
-  funcs.inverseArray();
-  expect(consoleSpy).toHaveBeenCalledWith("fox brown quick the ");
-});
+describe("transformStrings", () => {
+  let consoleSpy;
 
-test("transformArrayWithMap deve adicionar 5 a cada nota", () => {
-  funcs.transformArrayWithMap();
-  expect(consoleSpy).toHaveBeenCalledWith([82, 70, 86, 97, 88]);
-});
+  beforeEach(() => {
+    consoleSpy = jest.spyOn(console, "log").mockImplementation(() => { });
+  });
 
-test("transformStrings deve gerar acrônimo corretamente", () => {
-  funcs.transformStrings();
-  expect(consoleSpy).toHaveBeenNthCalledWith(1, ["f", "y", "i"]);
-  expect(consoleSpy).toHaveBeenNthCalledWith(2, "fyi");
+  afterEach(() => {
+    consoleSpy.mockRestore();
+  });
+
+  test("deve gerar acrônimo corretamente", () => {
+    const words = ["for", "your", "information"];
+    const result = funcs.transformStrings(words);
+
+    expect(consoleSpy).toHaveBeenNthCalledWith(2, "fyi");
+    expect(result).toBe('fyi')
+  });
 });

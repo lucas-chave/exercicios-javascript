@@ -1,8 +1,10 @@
-function gradesArray() {
-   const grades = [[89, 77, 78], [76, 82, 81], [91, 94, 89]];
+const grades = [[89, 77, 78], [76, 82, 81], [91, 94, 89]];
+
+function gradesArray(grades) {
    let total = 0;
    let average = 0.0;
-   for (let row = 0; row < grades.length; ++row) {
+
+   for (let row = 0; row < grades?.length; ++row) {
       for (let col = 0; col < grades[row].length; ++col) {
          total += grades[row][col];
       }
@@ -12,8 +14,11 @@ function gradesArray() {
       total = 0;
       average = 0.0;
    }
+
+   return { total, average }
 }
-gradesArray()
+
+// console.log(gradesArray(grades));
 
 function matrix(numrows, numcols, initial) {
    const arr = [];
@@ -27,12 +32,14 @@ function matrix(numrows, numcols, initial) {
    return arr;
 }
 
-function matrixNames() {
-   const nums = matrix(5, 5, 0);
-   console.log(nums[1][1]); // displays 0
-   const names = matrix(3, 3, "");
-   names[1][2] = "Joe";
-   console.log(names[1][2]);
+const nums = matrix(5, 5, 0);
+const names = matrix(3, 3, "");
+
+function matrixNames(row, cols, name, namesMatrix) {
+   if (row && cols && name) {
+      namesMatrix[row][cols] = name;
+      console.log(namesMatrix[row][cols]);
+   }
 }
-// matrixNames()
+matrixNames()
 module.exports = { gradesArray, matrix, matrixNames };

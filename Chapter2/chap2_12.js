@@ -1,5 +1,5 @@
-function jaggedArrays() {
-   const grades = [[89, 77], [76, 82, 81], [91, 94, 89, 99]];
+const grades = [[89, 77], [76, 82, 81], [91, 94, 89, 99]];
+function jaggedArrays(grades) {
    let total = 0;
    let average = 0.0;
    for (let row = 0; row < grades.length; ++row) {
@@ -13,6 +13,6 @@ function jaggedArrays() {
       average = 0.0;
    }
 }
-jaggedArrays()
+jaggedArrays(grades)
 
 module.exports = { jaggedArrays };

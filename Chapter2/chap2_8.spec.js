@@ -24,7 +24,7 @@ describe("filterNumbers.js", () => {
   });
 
   test("runFilter deve imprimir pares e ímpares corretamente", () => {
-    runFilter();
+    const result = runFilter(20);
 
     const expectedEvens = [2, 4, 6, 8, 10, 12, 14, 16, 18, 20];
     const expectedOdds = [1, 3, 5, 7, 9, 11, 13, 15, 17, 19];
@@ -33,5 +33,6 @@ describe("filterNumbers.js", () => {
     expect(consoleSpy).toHaveBeenNthCalledWith(2, expectedEvens);
     expect(consoleSpy).toHaveBeenNthCalledWith(3, "Odd numbers: ");
     expect(consoleSpy).toHaveBeenNthCalledWith(4, expectedOdds);
+    expect(result).toStrictEqual({ odds: expectedOdds, evens: expectedEvens })
   });
 });

@@ -1,30 +1,34 @@
-function weekTemps() {
-   this.dataStore = [];
-   this.add = add;
-   this.average = average;
-}
-
-function add(temp) {
-   this.dataStore.push(temp);
-}
-
-function average() {
+function calcAverage(data) {
+   if (data.length === 0) return 0;
    let total = 0;
-   for (let i = 0; i < this.dataStore.length; ++i) {
-      total += this.dataStore[i];
+   for (let i = 0; i < data.length; ++i) {
+      total += data[i];
    }
-   return total / this.dataStore.length;
+   return total / data.length;
 }
 
-const thisWeek = new weekTemps();
-thisWeek.add(52);
-thisWeek.add(55);
-thisWeek.add(61);
-thisWeek.add(65);
-thisWeek.add(55);
-thisWeek.add(50);
-thisWeek.add(52);
-thisWeek.add(49);
-console.log(thisWeek.average());
+function WeekTemps(storage = []) {
+   this.dataStore = storage;
 
-module.exports = { weekTemps };
+   this.add = function (temp) {
+      this.dataStore.push(temp);
+   };
+   // console.log(this.dataStore, '-----');
+
+   this.average = calcAverage(this.dataStore)
+
+}
+
+function runWeekTemps(temps, logger) {
+   const thisWeek = new WeekTemps(temps);
+
+   temps.forEach(t => thisWeek.add(t));
+
+   logger(thisWeek.average);
+   return thisWeek;
+}
+
+const logger = console.log;
+runWeekTemps([52, 55, 61, 65, 55, 50, 52, 49], logger);
+
+module.exports = { WeekTemps, runWeekTemps };

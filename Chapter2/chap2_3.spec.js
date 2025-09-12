@@ -12,7 +12,9 @@ describe("searchNameInArrayWithPosition", () => {
   });
 
   test("deve mostrar a primeira e última posição de 'Mike'", () => {
-    searchNameInArrayWithPosition();
+    const names = ["David", "Mike", "Cynthia", "Raymond", "Clayton", "Mike", "Jennifer"];
+    const name = "Mike";
+    searchNameInArrayWithPosition(names, name);
     expect(consoleSpy).toHaveBeenNthCalledWith(1, "First found Mike at position 1");
     expect(consoleSpy).toHaveBeenNthCalledWith(2, "Last found Mike at position 5");
   });
@@ -30,7 +32,9 @@ describe("stringsOfArrays", () => {
   });
 
   test("deve exibir a string dos nomes corretamente", () => {
-    stringsOfArrays();
+    const namesStrings = ["David", "Cynthia", "Raymond", "Clayton", "Mike", "Jennifer"];
+
+    stringsOfArrays(namesStrings);
     expect(consoleSpy).toHaveBeenNthCalledWith(
       1,
       "David,Cynthia,Raymond,Clayton,Mike,Jennifer"

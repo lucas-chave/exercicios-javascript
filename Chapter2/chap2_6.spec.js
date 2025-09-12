@@ -20,22 +20,16 @@ describe("evenNumbers.js", () => {
   });
 
   test("verifyEveryNumbers deve identificar que nem todos os números são pares", () => {
-    verifyEveryNumbers();
+    const nums = [2, 4, 6, 7, 8, 10];
+    const result = verifyEveryNumbers(nums);
     expect(consoleSpy).toHaveBeenCalledWith("some numbers are odd");
+    expect(result).toBe('some numbers are odd')
   });
 
   test("verifyEveryNumbers deve detectar quando todos forem pares (versão modificada)", () => {
-    const allEven = () => {
-      const nums = [2, 4, 6, 8, 10];
-      const even = nums.every(isEven);
-      if (even) {
-        console.log("all numbers are even");
-      } else {
-        console.log("some numbers are odd");
-      }
-    };
-
-    allEven();
+    const nums = [2, 4, 6, 8, 10];
+    const result = verifyEveryNumbers(nums);
     expect(consoleSpy).toHaveBeenCalledWith("all numbers are even");
+    expect(result).toBe('all numbers are even');
   });
 });

@@ -12,23 +12,18 @@ describe("searchNameInArray", () => {
   });
 
   test("deve encontrar Cynthia no array", () => {
-    searchNameInArray();
+    const names = ["David", "Cynthia", "Raymond", "Clayton", "Jennifer"];
+    const name = 'Cynthia';
+
+    searchNameInArray(names, name);
     expect(consoleSpy).toHaveBeenCalledWith("Found Cynthia at position 1");
   });
 
   test("deve imprimir 'not found' se alterarmos o array", () => {
-    const searchWithoutCynthia = () => {
-      const names = ["David", "Raymond", "Clayton", "Jennifer"];
-      const name = "Cynthia";
-      const position = names.indexOf(name);
-      if (position >= 0) {
-        console.log("Found " + name + " at position " + position);
-      } else {
-        console.log(name + " not found in array.");
-      }
-    };
+    const names = ["David", "Raymond", "Clayton", "Jennifer"];
+    const name = "Cynthia";
 
-    searchWithoutCynthia();
+    searchNameInArray(names, name);
     expect(consoleSpy).toHaveBeenCalledWith("Cynthia not found in array.");
   });
 });
