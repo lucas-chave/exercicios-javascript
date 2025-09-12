@@ -1,9 +1,8 @@
-function searchNameInArray() {
-   const names = ["David", "Cynthia", "Raymond", "Clayton", "Jennifer"];
-   const name = 'Cynthia';
-   // var name = 'Cynthiaa';
+const names = ["David", "Cynthia", "Raymond", "Clayton", "Jennifer"];
+const name = 'Cynthia';
 
-   const position = names.indexOf(name);
+function searchNameInArray(arrNames, name) {
+   const position = arrNames.indexOf(name);
    if (position >= 0) {
       console.log("Found " + name + " at position " + position);
    }
@@ -11,4 +10,6 @@ function searchNameInArray() {
       console.log(name + " not found in array.");
    }
 }
-searchNameInArray()
+searchNameInArray(names, name)
+
+module.exports = { searchNameInArray };
